@@ -1,0 +1,5 @@
+d:\upc\MVCVenta\MVCVenta\bin\MVCVenta.dll
+d:\upc\MVCVenta\MVCVenta\bin\MVCVenta.pdb
+d:\upc\MVCVenta\MVCVenta\obj\Debug\ResolveAssemblyReference.cache
+d:\upc\MVCVenta\MVCVenta\obj\Debug\MVCVenta.dll
+d:\upc\MVCVenta\MVCVenta\obj\Debug\MVCVenta.pdb
