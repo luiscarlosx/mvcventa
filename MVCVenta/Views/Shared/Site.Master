@@ -8,11 +8,15 @@
 </head>
 
 <body>
+    <form id="form1" runat="server">
     <div class="page">
 
         <div id="header">
             <div id="title">
-                <h1>My MVC Application</h1>
+                <h1>
+                    <asp:Image ID="Image1" runat="server" 
+                        ImageUrl="../../Imagenes/Logo-tienda-de-hardware.png" />
+                </h1>
             </div>
               
             <div id="logindisplay">
@@ -36,5 +40,6 @@
             </div>
         </div>
     </div>
+    </form>
 </body>
 </html>

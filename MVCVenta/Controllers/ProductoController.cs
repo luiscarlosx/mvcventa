@@ -44,7 +44,7 @@ namespace MVCVenta.Controllers
                                   }).ToList();
 
             listaProductos = productos.ConvertAll(o => new ProductoList(o.Pk_eProducto,o.dominio,o.producto,o.dPrecio,o.cEspecificacion,o.bImagen));
-
+             
             return View(listaProductos);
         }
 
@@ -61,6 +61,10 @@ namespace MVCVenta.Controllers
 
         public ActionResult Create()
         {
+            //Llenar combo Linea
+            var dominios = from c in _data.TB_Dominios select c;
+            ViewData["Dominios"] = new SelectList(dominios, "Pk_eDominio", "cDescripcion");
+
             return View();
         } 
 
@@ -68,13 +72,23 @@ namespace MVCVenta.Controllers
         // POST: /Producto/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+           public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                //Crear un nuevo objecto producto .
+                TB_Producto newProducto = new TB_Producto();
+                newProducto.Fk_eDominio = Int16.Parse(Request.Form["Fk_eDominio"].ToString());
+                newProducto.cDescripcion = Request.Form["cDescripcion"].ToString();
+                newProducto.dPrecio = decimal.Parse(Request.Form["dPrecio"].ToString());
+                newProducto.cEspecificacion = Request.Form["cEspecificacion"].ToString();
+                //newProducto.bImagen = "v";
+               
+                //Agregar el producto a la tabla productos.
+                _data.TB_Productos.InsertOnSubmit(newProducto);
+                _data.SubmitChanges();
+               return RedirectToAction("Index");
             }
             catch
             {

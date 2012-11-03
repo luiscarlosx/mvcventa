@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
+using MVCVenta.Models;
 
 namespace MVCVenta.ViewModels
 {
     public class ProductoList
     {
         public int ID { get; set; }
+
+        [DisplayName("Linea")]
         public string Dominio  { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
@@ -18,5 +22,11 @@ namespace MVCVenta.ViewModels
         {
             this.ID = id; this.Dominio = dominio; this.Descripcion = descripcion; this.Precio = precio; this.Especificacion = especificacion; this.Imagen=imagen;
         }
+
+        public ProductoList()
+        {
+        }
     }
+
+  
 }

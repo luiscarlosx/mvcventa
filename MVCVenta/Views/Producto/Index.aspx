@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
+    <h2>Listado de Productos</h2>
 
     <table>
         <tr>
@@ -49,7 +49,7 @@
                 <%: item.Descripcion%>
             </td>
             <td>
-                <%: String.Format("{0:F}", item.Precio) %>
+                <%: String.Format("{0:c}", item.Precio) %>
             </td>
             <td>
                 <%: item.Especificacion %>
@@ -64,7 +64,7 @@
     </table>
 
     <p>
-        <%: Html.ActionLink("Create New", "Create") %>
+        <%: Html.ActionLink("Crear Nuevo Producto", "Create") %>
     </p>
 
 </asp:Content>
